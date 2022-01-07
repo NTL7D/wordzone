@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Zone</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+
+    
+    .nav{
+        background-color: #BEE3BA;
+        width: 100%; 
+        height: 40px;
+        text-align: center;
+        color: #000;
+        font-size: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    h1{
+        font-size: 80px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    h2{
+        font-size: 30px;
+        margin-top: 50px;
+        margin-left: 200px;
+    }
+
+    .btn{
+        position: absolute;
+        top: 940px;
+        left: 170px;
+    }
+
+    .btn input{
+        margin-left: 30px;
+        font-weight: bold;
+    }
+
+    #submit, #back{
+        display: inline;
+    }
+
+    input[type="button"]{
+        background-color: #8A9290;
+        color: #fff;
+        padding: 16px 32px;
+        font-size: 24px;
+    }
+    
+    input[type="button"]:hover{
+        background-color:#9FD4A3;
+        color: #fff;
+    }
+
+    .qna img{
+        margin-top: 100px;
+        margin-left: 100px;
+        width: 600px;
+        height: 600px;
+    }
+
+    .question{
+        position: absolute;
+        top: 30px;
+        left: 800px;
+        padding-bottom: 100px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 200px;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    li{
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+    .answer-input{
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+
+    .answer{
+        margin-left: 140px;
+        color: red;
+    }
+
+    .result{
+        margin-top: 50px;
+    }
+</style>
+<body>
+<div class="nav"><h3>Game D</h3></div>
+<h2>Chủ đề: Basketball</h2>
+<div class="qna" id="image">
+    <img src="crossword/D/game D.png" alt="">
+</div>
+<div class="question">
+    <h2>Hàng ngang:</h2>
+        <ul>
+            <li>1. When an offensive player jumps with their hands above the rim and throws the ball in the basket.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="1r"><div class="answer" id="1ra"></div></span>
+            <li>3. When the offensive team loses possession of the ball by way of an offensive foul, steal or out-of-bounds violation</li>
+            <span class="answer-input">Trả lời:<input type="text" id="3r"><div class="answer" id="3ra"></div></span>
+            <li>4. Shots within two-feet of the basket.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="4r"><div class="answer" id="4ra"></div></span>
+            <li>5. This penalty, which results in a turnover, occurs when an offensive player with the ball runs into a stationary defensive player and knocks him or her over.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="5r"><div class="answer" id="5ra"></div></span>
+            <li>8. When a player from either team retrieves the ball and gains possession after a missed shot.</li>
+            <span class="answer-input">Trả lời:<input type="text"id="8r"><div class="answer" id="8ra"></div></span>
+            <li>9. A penalty, which results in a turnover, where an offensive player moves his or her pivot foot illegally or takes three steps without dribbling the ball.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="9r"><div class="answer" id="9ra"></div></span>
+            <!-- Hàng dọc -->
+            <h2>Hàng dọc:</h2>
+            <li>1. This penalty, which results in a turnover, occurs when a player dribbles the ball with both hands. It also occurs when a player dribbles, stops dribbling, and then begins to dribble again.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="1c"><div class="answer" id="1ca"></div></span>
+            <li>2. A defensive strategy where the defenders guard the opposing team the full length of the court instead of waiting on the opposite side for the offense to come across.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="2c"><div class="answer" id="2ca"></div></span>
+            <li>6. A statistic that occurs when a player passes the ball to someone who scores after receiving the pass.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="6c"><div class="answer" id="6ca"></div></span>
+            <li>7. The arena where the Blugolds play their home games.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="7c"><div class="answer" id="7ca"></div></span>
+        </ul>
+    </div>
+</div>
+<div class="btn">
+    <div id="submit">
+        <input type="button" value="Gửi đáp án" onclick="submit()">
+    </div>
+    <div id="back">
+        <input type="button" id="back" value="Quay lại" onclick="backmenu()">
+    </div>
+</div>
+<div class="result"><h2 id="result"></h2></div>
+</body>
+<script>
+    function submit() {
+        var score=0;
+        var row1= document.getElementById("1r");
+        var row3=document.getElementById("3r");
+        var row4=document.getElementById("4r");
+        var row5=document.getElementById("5r");
+        var row8=document.getElementById("8r");
+        var row9=document.getElementById("9r");
+        var col1=document.getElementById("1c");
+        var col2=document.getElementById("2c");
+        var col6=document.getElementById("6c");
+        var col7=document.getElementById("7c");
+// row 1 answer
+        if((row1.value=="dunk")||(row1.value=="DUNK")){
+            score++;
+            document.getElementById("1ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("1ra").innerHTML="câu trả lời: dunk"
+        }
+// row 3 answer
+        if((row3.value=="turnover")||(row3.value=="TURNOVER")){
+            score++;
+            document.getElementById("3ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("3ra").innerHTML="câu trả lời: turnover"; 
+        }
+// row 4 answer
+        if((row4.value=="layup")||(row4.value=="LAYUP")){
+            score++;
+            document.getElementById("4ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("4ra").innerHTML="câu trả lời: layup"; 
+        }
+// row 5 answer
+        if((row5.value=="charge")||(row5.value=="CHARGE")){
+            score++;
+            document.getElementById("5ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("5ra").innerHTML="câu trả lời: charge"; 
+        }
+// row 8 answer
+        if((row8.value=="rebound")||(row8.value=="REBOUND")){
+            score++;
+            document.getElementById("8ra").innerHTML="chính xác"
+        }else{
+            document.getElementById("8ra").innerHTML="câu trả lời: rebound"; 
+        }
+// row 9 answer
+        if((row9.value=="travel")||(row9.value=="TRAVEL")){
+            score++;
+            document.getElementById("9ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("9ra").innerHTML="câu trả lời: travel"; 
+        }
+// column 1 answer
+        if((col1.value=="doubleribble")||(col1.value=="DOUBLERIBBLE")){
+            score++;
+            document.getElementById("1ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("1ca").innerHTML="câu trả lời: doubleribble"; 
+        }
+// column 2 answer
+        if((col2.value=="press")||(col2.value=="PRESS")){
+            score++;
+            document.getElementById("2ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("2ca").innerHTML="câu trả lời: press"; 
+        }
+// column 6 answer
+        if((col6.value=="assist")||(col6.value=="ASSIST")){
+            score++;
+            document.getElementById("6ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("6ca").innerHTML="câu trả lời: assist"; 
+        }
+// column 7 answer
+        if((col7.value=="zorn")||(col7.value=="ZORN")){
+            score++;
+            document.getElementById("7ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("7ca").innerHTML="câu trả lời: zorn"; 
+        }
+    document.getElementById("image").innerHTML="<img src='crossword/D/game D-answer.png' alt=''>"
+    document.getElementById("result").innerHTML="Số điểm đạt được: "+score;
+    document.getElementById("submit").innerHTML="<input type='button' id='replay' value='chơi lại' onclick='replay()'>"
+    }
+
+    function replay() {
+        location.reload();
+    }
+
+    function backmenu() {
+        location.replace("menu.html");
+    }
+</script>
+</html>

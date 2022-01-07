@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Zone</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+
+    
+    .nav{
+        background-color: #BEE3BA;
+        width: 100%; 
+        height: 40px;
+        text-align: center;
+        color: #000;
+        font-size: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    h1{
+        font-size: 80px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    h2{
+        font-size: 30px;
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+
+    .btn{
+        position: absolute;
+        top: 250px;
+        left: 720px;
+    }
+
+    input[type="button"]{
+        background-color: #8A9290;
+        color: #fff;
+        padding: 16px 32px;
+        font-size: 24px;
+
+    }
+    
+    input[type="button"]:hover{
+        background-color:#9FD4A3;
+        color: #fff;
+    }
+
+    .qna img{
+        float: left;
+        width: 600px;
+        height: 600px;
+    }
+
+    .question{
+        float: right;
+        margin-top: -80px;
+        margin-right: 20px;
+        padding-bottom: 50px;
+        font-size: 18px;
+    font-weight: bold;
+    margin-left: 200px;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    li{
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+    .btn{
+        position: absolute;
+        top: 880px;
+        left: 90px;
+    }
+
+    #submit, #back{
+        display: inline-block;
+    }
+
+    .btn input{
+        margin-left: 30px;
+        font-weight: bold;
+    }
+
+    .answer-input{
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+
+    .answer{
+        margin-left: 140px;
+        color: red;
+    }
+
+    .result{
+        margin-top: 700px;
+    }
+</style>
+<body>
+<div class="nav"><h3>Game B</h3></div>
+<h2>Chủ đề: Cooking Term</h2>
+<div class="qna" id="image">
+    <img src="crossword/B/game B.png" alt="">
+</div>
+<div class="question">
+        <ul>
+            <h2>Hàng ngang:</h2>
+            <li>3. 	remove liquid using a colander</li>
+            <span class="answer-input">Trả lời:<input type="text" id="3r"><div class="answer" id="3ra"></div></span>
+            <li>4. cook food in oven with dry heat</li>
+            <span class="answer-input">Trả lời:<input type="text" id="4r"><div class="answer" id="4ra"></div></span>
+            <li>5. 	solid changes to a liquid in microwave or on stove</li>
+            <span class="answer-input">Trả lời:<input type="text" id="5r"><div class="answer" id="5ra"></div></span>
+            <h2>Hàng dọc:</h2>
+            <li>1. scrape food against a grater to make small pieces</li>
+            <span class="answer-input">Trả lời:<input type="text" id="1c"><div class="answer" id="1ca"></div></span>
+            <li>2. 	mix ingredients together with spoon or blender until combined</li>
+            <span class="answer-input">Trả lời:<input type="text" id="2c"><div class="answer" id="2ca"></div></span>
+            <li>4. liquid is hot enough for bubbles to rise and break the surface</li>
+            <span class="answer-input">Trả lời:<input type="text" id="4c"><div class="answer" id="4ca"></div></span>
+        </ul>
+    </div>
+</div>
+<div class="btn">
+    <div id="submit">
+        <input type="button" value="Gửi đáp án" onclick="submit()">
+    </div>
+    <div id="back">
+        <input type="button" id="back" value="Quay lại" onclick="backmenu()">
+    </div>
+</div>
+<div class="result"><h2 id="result"></h2></div>
+</body>
+<script>
+    function submit() {
+        var score=0;
+        var row3=document.getElementById("3r");
+        var row4=document.getElementById("4r");
+        var row5=document.getElementById("5r");
+        var col1=document.getElementById("1c");
+        var col2=document.getElementById("2c");
+        var col4=document.getElementById("4c");
+// row 3 answer
+        if((row3.value=="drain")||(row3.value=="DRAIN")){
+            score++;
+            document.getElementById("3ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("3ra").innerHTML="câu trả lời: drain";
+        }
+// row 4 answer
+        if((row4.value=="bake")||(row4.value=="BAKE")){
+            score++;
+            document.getElementById("4ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("4ra").innerHTML="câu trả lời: bake"; 
+        }
+// row 5 answer
+        if((row5.value=="melt")||(row5.value=="MELT")){
+            score++;
+            document.getElementById("5ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("5ra").innerHTML="câu trả lời: melt"; 
+        }
+// columns
+// column 1 answer
+    if((col1.value=="grate")||(col1.value=="GRATE")){
+            score++;
+            document.getElementById("1ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("1ca").innerHTML="câu trả lời: grate"; 
+        }
+// column 2 answer
+    if((col2.value=="mix")||(col1.value=="MIX")){
+            score++;
+            document.getElementById("2ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("2ca").innerHTML="câu trả lời: mix"; 
+        }
+// column 4 answer
+        if((col4.value=="boil")||(col4.value=="BOIL")){
+            score++;
+            document.getElementById("4ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("4ca").innerHTML="câu trả lời: boil"; 
+        }
+    
+        document.getElementById("submit").innerHTML="<input type='button' id='replay' value='chơi lại' onclick='replay()'>";
+        document.getElementById("image").innerHTML = "<img src='crossword/B/game B-answer.png' alt=''>";
+        document.getElementById("result").innerHTML="Số điểm bạn đạt được: "+score;
+    }
+
+    function replay() {
+        location.reload();
+    }
+
+    function backmenu() {
+        location.replace("menu.html");
+    }
+</script>
+</html>

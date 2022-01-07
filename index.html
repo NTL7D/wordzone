@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Zone</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        }
+    
+    .nav{
+        background-color: #BEE3BA;
+        width: 100%; 
+        height: 40px;
+        text-align: center;
+        color: #000;
+        font-size: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    h1{
+        font-size: 80px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .btn{
+        position: absolute;
+        top: 250px;
+        left: 720px;
+    }
+
+    input[type="button"]{
+        background-color: #8A9290;
+        color: #fff;
+        padding: 16px 32px;
+        font-size: 24px;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+
+    input[type="button"]:hover{
+        background-color:#9FD4A3;
+        color: #fff;
+    }
+</style>
+<body>
+    <div class="nav"><h3>Trang chủ</h3></div>
+    <h1>Word Zone</h1>
+    <div class="btn">
+        <input type="button" value="Bắt đầu" onclick="start()">
+        <input type="button" value="Hướng dẫn" onclick="howto()">
+    </div>
+</body>
+<script>
+    function start() {
+        location.replace("login.html");
+    }
+
+    function howto() {
+        location.replace("how.html");
+    }
+</script>
+</html>

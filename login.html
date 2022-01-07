@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Zone</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        }
+    
+    .nav{
+        background-color: #BEE3BA;
+        width: 100%; 
+        height: 40px;
+        text-align: center;
+        color: #000;
+        font-size: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    h1{
+        font-size: 80px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    h2{
+        text-align: center;
+        background-color:#9FD4A3;
+        padding-bottom: 10px;
+
+    }
+
+    .login{
+        display: inline-block;
+    }
+
+
+    input[type="button"]{
+        background-color: #8A9290;
+        color: #fff;
+        margin-top: 40px;   
+        margin-left: 25px;
+        padding: 4px 4px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    input[type="button"]:hover{
+        background-color:#9FD4A3;
+        color: #fff;
+    }
+
+    .login-form{
+        position: absolute;
+        top: 300px;
+        left: 800px;
+        width: 300px;
+        height: 300px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .contain{
+        margin-left: 50px;
+        margin-top: 50px;   
+    }
+
+    input[type="text"], input[type="password"]{
+        width: 200px;
+        height: 30px;
+    }
+
+    #user, #password{
+        display: block;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div class="nav"><h3>Trang chủ</h3></div>
+    <h1>Word Zone</h1>
+    <div class="login-form">
+        <h2>Đăng Nhập</h2> 
+        <div class="contain">
+            <div id="user">
+                <input type="text" name="username" id="name" placeholder="Tên đăng nhập">
+            </div>
+            <div id="password">
+                <input type="password" name="password" id="pass" placeholder="Mật khẩu">
+            </div>
+        </div>
+        <div class="login">
+            <input type="button" value="Đăng nhập" onclick="login()">
+            <input class="back" type="button" value="Quay lại" onclick="backindex()">
+        </div>
+
+        </div>
+
+</body>
+<script>
+    function login() {
+        if(document.getElementById("name").value == "admin" && document.getElementById("pass").value == "123" || document.getElementById("name").value == "mod" && document.getElementById("pass").value == "456" ){
+            alert( "đăng nhập thành công" );
+            location.href="menu.html";
+        }else{
+            alert( "đăng nhập thất bại");
+            location.href="login.html";
+        }
+    }
+
+    function backindex() {
+        location.replace("index.html");
+    }
+</script>
+</html>

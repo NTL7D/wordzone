@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Zone</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+
+    
+    .nav{
+        background-color: #BEE3BA;
+        width: 100%; 
+        height: 40px;
+        text-align: center;
+        color: #000;
+        font-size: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    h1{
+        font-size: 80px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    h2{
+        font-size: 30px;
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+
+    .btn{
+        position: absolute;
+        top: 250px;
+        left: 720px;
+    }
+
+    input[type="button"]{
+        background-color: #8A9290;
+        color: #fff;
+        padding: 16px 32px;
+        font-size: 24px;
+
+    }
+    
+    input[type="button"]:hover{
+        background-color:#9FD4A3;
+        color: #fff;
+    }
+
+    .qna img{
+        float: left;
+        width: 600px;
+        height: 600px;
+    }
+
+    .question{
+        float: right;
+        margin-top: -80px;
+        margin-right: 100px;
+        padding-bottom: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 200px;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    li{
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+    .btn{
+        position: absolute;
+        top: 880px;
+        left: 90px;
+    }
+
+    .btn input{
+        margin-left: 30px;
+        font-weight: bold;
+    }
+
+    #submit, #back{
+        display: inline-block;
+    }
+
+    .answer-input{
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+
+    .answer{
+        margin-left: 140px;
+        color: red;
+    }
+
+    .result{
+        margin-top: 700px;
+    }
+</style>
+<body>
+<div class="nav"><h3>Game A</h3></div>
+<h2>Chủ đề: Vegetable</h2>
+<div class="qna" id="image">
+    <img src="crossword/A/game A.png" alt="">
+</div>
+<div class="question">
+        <ul>
+            <h2>Hàng ngang:</h2>
+            <li>2. Red and made into sugar</li>
+            <span class="answer-input">Trả lời:<input type="text" id="2r"><div class="answer" id="2ra"></div></span>
+            <li>3. Hard to eat when missing front teeth</li>
+            <span class="answer-input">Trả lời:<input type="text" id="3r"><div class="answer" id="3ra"></div></span>
+            <h2>Hàng dọc:</h2>
+            <li>1. Green and grows in a pod</li>
+            <span class="answer-input">Trả lời:<input type="text" id="1c"><div class="answer" id="1ca"></div></span>
+            <li>2. High in protein</li>
+            <span class="answer-input">Trả lời:<input type="text" id="3c"><div class="answer" id="3ca"></div></span>
+            <li>4. Gives bad breath</li>
+            <span class="answer-input">Trả lời:<input type="text" id="4c"><div class="answer" id="4ca"></div></span>
+        </ul>
+    </div>
+</div>
+<div class="btn">
+    <div id="submit">
+        <input type="button" value="Gửi đáp án" onclick="submit()">
+    </div>
+    <div id="back">
+        <input type="button" id="back" value="Quay lại" onclick="backmenu()">
+    </div>
+</div>
+<div class="result"><h2 id="result"></h2></div>
+</body>
+<script>
+    function submit() {
+        var score=0;
+        var row2=document.getElementById("2r");
+        var row3=document.getElementById("3r");
+        var col1=document.getElementById("1c");
+        var col3=document.getElementById("3c");
+        var col4=document.getElementById("4c");
+// row 3 answer
+        if((row2.value=="beet")||(row2.value=="BEET")){
+            score++;
+            document.getElementById("2ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("2ra").innerHTML="câu trả lời: beet";
+        }
+// row 4 answer
+        if((row3.value=="corn")||(row3.value=="CORN")){
+            score++;
+            document.getElementById("3ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("3ra").innerHTML="câu trả lời: corn"; 
+        }
+// columns
+// column 1 answer
+    if((col1.value=="pea")||(col1.value=="PEA")){
+            score++;
+            document.getElementById("1ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("1ca").innerHTML="câu trả lời: pea"; 
+        }
+// column 2 answer
+    if((col3.value=="bean")||(col3.value=="BEAN")){
+            score++;
+            document.getElementById("3ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("3ca").innerHTML="câu trả lời: bean"; 
+        }
+// column 4 answer
+        if((col4.value=="onion")||(col4.value=="ONION")){
+            score++;
+            document.getElementById("4ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("4ca").innerHTML="câu trả lời: onion"; 
+        }
+    
+        document.getElementById("submit").innerHTML="<input type='button' id='replay' value='chơi lại' onclick='replay()'>";
+        document.getElementById("image").innerHTML = "<img src='crossword/A/game A-answer.png' alt=''>";
+
+        document.getElementById("result").innerHTML="Số điểm bạn đạt được: "+score;
+    }
+    
+    function replay() {
+        location.reload();
+    }
+
+    function backmenu() {
+        location.replace("menu.html");
+    }
+</script>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Zone</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+
+    
+    .nav{
+        background-color: #BEE3BA;
+        width: 100%; 
+        height: 40px;
+        text-align: center;
+        color: #000;
+        font-size: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    h1{
+        font-size: 80px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    h2{
+        font-size: 30px;
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+
+    .btn{
+        position: absolute;
+        top: 250px;
+        left: 720px;
+    }
+
+    input[type="button"]{
+        background-color: #8A9290;
+        color: #fff;
+        padding: 16px 32px;
+        font-size: 24px;
+
+    }
+    
+    input[type="button"]:hover{
+        background-color:#9FD4A3;
+        color: #fff;
+    }
+
+    .qna img{
+        float: left;
+        width: 600px;
+        height: 600px;
+    }
+
+    .question{
+        float: right;
+        margin-top: -80px;
+        margin-right: 20px;
+        padding-bottom: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 200px;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    li{
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+    .btn{
+        position: absolute;
+        top: 880px;
+        left: 90px;
+    }
+
+    .btn input{
+        margin-left: 30px;
+        font-weight: bold;
+    }
+
+    #submit, #back{
+        display: inline-block;
+    }
+
+    .answer-input{
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+    
+    .answer{
+        margin-left: 140px;
+        color: red;
+    }
+    
+    .result{
+        margin-top: 700px;
+    }
+</style>
+<body>
+<div class="nav"><h3>Game C</h3></div>
+<h2>Chủ đề: The Great Horned Owl</h2>
+<div class="qna" id="image">
+    <img src="crossword/C/game C.png" alt="">
+</div>
+<div class="question">
+        <ul>
+            <h2>Hàng ngang:</h2>
+            <li>3. This part of the body is red and white</li>
+            <span class="answer-input">Trả lời:<input type="text" id="3r"><div class="answer" id="3ra"></div></span>
+            <li>4. The color of the Great Horned Owl's feet</li>
+            <span class="answer-input">Trả lời:<input type="text" id="4r"><div class="answer" id="4ra"></div></span>
+            <li>5. They are yellow and black</li>
+            <span class="answer-input">Trả lời:<input type="text" id="5r"><div class="answer" id="5ra"></div></span>
+            <li>7. 	The color of the Great Horned Owl's eggs</li>
+            <span class="answer-input">Trả lời:<input type="text" id="7r"><div class="answer" id="7ra"></div></span>
+            <li>8. 	One of the things Great Horned Owls eat..</li>
+            <span class="answer-input">Trả lời:<input type="text"id="8r"><div class="answer" id="8ra"></div></span>
+            <li>10. Because they are up all night</li>
+            <span class="answer-input">Trả lời:<input type="text" id="10r"><div class="answer" id="10ra"></div></span>
+            <h2>Hàng dọc:</h2>
+            <li>1. This can eat a Great Horned Owl</li>
+            <span class="answer-input">Trả lời:<input type="text" id="1c"><div class="answer" id="1ca"></div></span>
+            <li>2. 	Lives in a _________ tree.</li>
+            <span class="answer-input">Trả lời:<input type="text" id="2c"><div class="answer" id="2ca"></div></span>
+            <li>6. These stretch to 1.4 meters</li>
+            <span class="answer-input">Trả lời:<input type="text" id="6c"><div class="answer" id="6ca"></div></span>
+            <li>9. What looks like ears or horns are really these</li>
+            <span class="answer-input">Trả lời:<input type="text" id="9c"><div class="answer" id="9ca"></div></span>
+        </ul>
+    </div>
+</div>
+<div class="btn">
+    <div id="submit">
+        <input type="button" value="Gửi đáp án" onclick="submit()">
+    </div>
+    <div id="back">
+        <input type="button" id="back" value="Quay lại" onclick="backmenu()">
+    </div>
+</div>
+<div class="result"><h2 id="result"></h2></div>
+</body>
+<script>
+    function submit() {
+        var score=0;
+        var row3=document.getElementById("3r");
+        var row4=document.getElementById("4r");
+        var row5=document.getElementById("5r");
+        var row7=document.getElementById("7r");
+        var row8=document.getElementById("8r");
+        var row10= document.getElementById("10r");
+        var col1=document.getElementById("1c");
+        var col2=document.getElementById("2c");
+        var col6=document.getElementById("6c");
+        var col9=document.getElementById("9c");
+// row 3 answer
+        if((row3.value=="neck")||(row3.value=="NECK")){
+            score++;
+            document.getElementById("3ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("3ra").innerHTML="câu trả lời: neck"
+        }
+// row 4 answer
+        if((row4.value=="black")||(row4.value=="BLACK")){
+            score++;
+            document.getElementById("4ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("4ra").innerHTML="câu trả lời: black"; 
+        }
+// row 5 answer
+        if((row5.value=="eyes")||(row5.value=="EYES")){
+            score++;
+            document.getElementById("5ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("5ra").innerHTML="câu trả lời: eyes "; 
+        }
+// row 7 answer
+        if((row7.value=="white")||(row7.value=="WHITE")){
+            score++;
+            document.getElementById("7ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("7ra").innerHTML="câu trả lời: white"; 
+        }
+// row 8 answer
+        if((row8.value=="rats")||(row8.value=="RATS")){
+            score++;
+            document.getElementById("8ra").innerHTML="chính xác"
+        }else{
+            document.getElementById("8ra").innerHTML="câu trả lời: rats"; 
+        }
+// row 10 answer
+        if((row10.value=="noctural")||(row10.value=="NOCTURAL")){
+            score++;
+            document.getElementById("10ra").innerHTML="chính xác";
+        }else{
+            document.getElementById("10ra").innerHTML="câu trả lời: noctural"; 
+        }
+// columns
+// column 1 answer
+        if((col1.value=="snake")||(col1.value=="SNAKE")){
+            score++;
+            document.getElementById("1ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("1ca").innerHTML="câu trả lời: snake"; 
+        }
+// column 2 answer
+        if((col2.value=="hollow")||(col2.value=="HOLLOW")){
+            score++;
+            document.getElementById("2ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("2ca").innerHTML="câu trả lời: hollow"; 
+        }
+// column 6 answer
+        if((col6.value=="wings")||(col6.value=="WINGS")){
+            score++;
+            document.getElementById("6ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("6ca").innerHTML="câu trả lời: wings"; 
+        }
+// column 9 answer
+        if((col9.value=="tufts")||(col9.value=="TUFTS")){
+            score++;
+            document.getElementById("9ca").innerHTML="chính xác";
+        }else{
+            document.getElementById("9ca").innerHTML="câu trả lời: tufts    "; 
+        }
+    
+        document.getElementById("submit").innerHTML="<input type='button' id='replay' value='chơi lại' onclick='replay()'>";
+        document.getElementById("image").innerHTML = "<img src='crossword/C/game C-answer.png' alt=''>";
+        document.getElementById("result").innerHTML="Số điểm bạn đạt được: "+score;
+    }
+
+        function replay() {
+            location.reload();
+        }
+
+    function backmenu() {
+        location.replace("menu.html");
+    }
+</script>
+</html>
