@@ -1,0 +1,7 @@
+ngang:
+beet
+corn
+dọc:
+pea
+bean
+onion

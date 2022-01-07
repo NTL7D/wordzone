@@ -1,0 +1,12 @@
+ngang:
+3. neck
+4. black
+5. eyes
+7.white
+8.rats
+10.nocturnal
+dọc:
+1.snake
+2.hollow
+6.wings
+9.tufs

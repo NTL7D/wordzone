@@ -1,0 +1,8 @@
+ngang:
+3. drain
+4. bake
+5. melt
+dọc:
+1. grate
+2. mix
+4. boil

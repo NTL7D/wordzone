@@ -1,0 +1,12 @@
+Ngang:
+1.dunk
+3.turnover
+4.layup
+5.charge
+8.rebound	
+9.travel
+Dọc:
+1.doubledribble
+2.press
+6.assisst
+7.zorn
